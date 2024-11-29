@@ -1,0 +1,27 @@
+#include <Servo.h>
+
+Servo shutterServo; // Create a Servo object
+
+const int rainSensorPin = 2; // Rain sensor digital pin
+const int servoPin = 9;      // Servo signal pin
+
+void setup() {
+  pinMode(rainSensorPin, INPUT);
+  shutterServo.attach(servoPin); // Attach servo to pin 9
+  shutterServo.write(0);         // Initial position (shutter open)
+  Serial.begin(9600);            // Initialize serial monitor
+}
+
+void loop() {
+  int rainDetected = digitalRead(rainSensorPin); // Read rain sensor state
+
+  if (rainDetected == LOW) { // Rain detected (LOW signal from rain sensor)
+    Serial.println("Rain detected! Closing shutter.");
+    shutterServo.write(90); // Close shutter (adjust angle as needed)
+  } else {
+    Serial.println("No rain detected. Keeping shutter open.");
+    shutterServo.write(0); // Open shutter
+  }
+
+  delay(500); // Delay for stability
+}
