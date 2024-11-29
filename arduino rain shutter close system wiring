@@ -1,0 +1,20 @@
+Components Needed
+
+Arduino Uno
+Rain sensor module
+Servo motor
+Jumper wires
+Breadboard (optional)
+Power supply
+
+Connections
+
+Rain Sensor:
+VCC → 5V on Arduino
+GND → GND on Arduino
+DO (Digital Output) → Pin 2 on Arduino
+
+Servo Motor:
+Signal → Pin 9 on Arduino
+VCC → 5V on Arduino
+GND → GND on Arduino
